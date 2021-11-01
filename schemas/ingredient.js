@@ -17,14 +17,8 @@ export default {
     {
       name: 'quantity',
       title: 'Quantity',
-      type: 'number',
-      validation: Rule => Rule.required().min(1),
-    },
-    {
-      name: 'unit',
-      title: 'Unit',
       type: 'string',
-      validation: Rule => Rule.required().min(1).max(80),
+      validation: Rule => Rule.required(),
     },
     {
       name: 'notes',
@@ -36,13 +30,11 @@ export default {
     select: {
       title: 'title',
       quantity: 'quantity',
-      unit: 'unit',
-      notes: 'notes'
     },
-    prepare({ title, quantity, unit, notes }) {
+    prepare({ title, quantity }) {
       return {
         title,
-        subtitle: `${quantity} ${unit}`,
+        subtitle: quantity,
       }
     }
   },
