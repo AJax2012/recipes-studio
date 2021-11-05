@@ -14,11 +14,11 @@ Install sanity:
 npm install -g @sanity/cli
 ```
 
-Once the project is cloned and sanity is installed
+Once the project is cloned and sanity is installed, delete the `api` section in the `sanity.json` file and do the following in a terminal:
 
 ```bash
 cd recipes-studio
-sanity init
+sanity start
 ```
 
 This should create a sanity.json file for you. If it doesn't, copy and paste the following. Remember to add your projectId and change the dataset if you need to.
