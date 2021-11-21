@@ -43,6 +43,11 @@ export default {
       validation: Rule => Rule.required().min(1),
     },
     {
+      name: 'sitTime',
+      title: 'Sit/Marinade Time',
+      type: 'string',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -111,16 +116,24 @@ export default {
       image: 'image',
       prep: 'prepTime',
       cook: 'cookTime',
+      sit: 'sitTime'
     },
     prepare({
       title,
       image,
       prep,
-      cook
+      cook,
+      sit
     }) {
+      let subtitle = `Time to make: ${prep + cook} min`;
+
+      if (sit) {
+        subtitle += ` (+${sit})`
+      }
+
       return {
         title,
-        subtitle: `Time to make: ${prep + cook} min`,
+        subtitle,
         media: image
       }
     }
